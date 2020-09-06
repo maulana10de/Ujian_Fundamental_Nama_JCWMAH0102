@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Soal 1</title>
+  </head>
+  <body>
+    <h1>Drawing your shape</h1>
+    <select name="menu" id="menu">
+      <option value="Persegi">Persegi</option>
+      <option value="Siku Kiri">Segitiga siku kiri</option>
+      <option value="Siku Kanan">Segitiga Siku Kanan</option>
+    </select>
+    <p>Size of shape</p>
+    <input type="number" id="inNum" />
+    <button onclick="btGenerate()">Generate</button>
+
+    <p id="result"></p>
+
+    <script>
+      btGenerate = () => {
+        let menu = document.getElementById('menu').value;
+        let inNum = document.getElementById('inNum').value;
+        // console.log(menu, inNum);
+
+        let elem = '';
+        if (menu == 'Persegi') {
+          for (let i = 1; i <= inNum; i++) {
+            for (let j = 1; j <= inNum; j++) {
+              if (j % 2 != 0 && i % 2 != 0) {
+                elem += '*';
+              } else {
+                elem += '#';
+              }
+            }
+            elem += '<br/>';
+          }
+          document.getElementById('result').innerHTML = elem;
+        } else if (menu == 'Siku Kiri') {
+          for (let i = 1; i <= inNum; i++) {
+            for (let j = 1; j <= i; j++) {
+              if (j % 2 != 0) {
+                elem += '*';
+              } else {
+                elem += '#';
+              }
+            }
+            elem += '<br/>';
+          }
+          document.getElementById('result').innerHTML = elem;
+        } else if (menu == 'Siku Kanan') {
+          let space = '&nbsp;&nbsp;';
+          let count = 1;
+          for (let i = 1; i <= inNum; i++) {
+            for (let j = 1; j <= inNum; j++) {
+              if (j <= inNum - i) {
+                elem += space;
+              } else {
+                if (i % 2 != 0) {
+                  elem += '*';
+                } else {
+                  elem += '#';
+                }
+                count++;
+              }
+            }
+            elem += `<br />`;
+            count = 1;
+          }
+          document.getElementById('result').innerHTML = elem;
+        }
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fresh Fruit Store</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="container-menu">
+      <fieldset id="menu-page">
+        <legend>Menu</legend>
+        <button type="button" onclick="btMenu('login')">Login</button>
+        <button type="button" onclick="btMenu('regis')">Registrasi</button>
+      </fieldset>
+
+      <fieldset id="regis-page">
+        <legend>Register</legend>
+        <form id="formRegister">
+          <input type="text" id="regisName" placeholder="Masukan Nama" /><br />
+          <input
+            type="email"
+            id="regisEmail"
+            placeholder="Masukan Email"
+          /><br />
+          <input
+            type="password"
+            id="regisPass"
+            placeholder="Masukan Password"
+          /><br />
+          <button type="button" onclick="btRegis()">Daftar</button>
+        </form>
+      </fieldset>
+
+      <fieldset id="login-page">
+        <legend>Login</legend>
+        <form id="formLogin">
+          <input type="text" id="loginName" placeholder="Masukan Nama" />
+          <input
+            type="password"
+            id="loginPass"
+            placeholder="Masukan Password"
+          />
+          <button type="button" onclick="btLogin()" id='bt-login'>Login</button>
+          <button type="button" onclick="btLogout()" id='bt-logout'>Logout</button>
+        </form>
+      </fieldset>
+
+      <fieldset id="addProduct-page">
+        <legend>Tambah Produk</legend>
+        <form id="formProduk">
+          <input type="text" id="namaProduk" placeholder="Nama Produk" />
+          <input type="text" id="fotoProduk" placeholder="Link Foto" />
+          <input type="text" id="deskProduk" placeholder="Deskripsi" />
+          <input type="number" id="stockProduk" placeholder="Stock Produk" />
+          <input type="number" id="hargaProduk" placeholder="Harga Produk" />
+          <button type="button" onclick="btTambah()">Tambah Produk</button>
+        </form>
+      </fieldset>
+      <fieldset id="list-produk">
+        <legend>List Produk</legend>
+        </table>
+        <table>
+          <thead id="filter-content">
+            <th>
+              <input
+                style="display: inline-block"
+                type="number"
+                id="inMinStock"
+                placeholder="0"
+              />
+              <input
+                style="display: inline-block"
+                type="number"
+                id="inMaxStock"
+                placeholder="100"
+              />
+              <button type="button" onclick="btSearchStock()">
+                Filter by Stock
+              </button>
+            </th>
+            <th>
+              <input
+                style="display: inline-block"
+                type="number"
+                id="inMinPrice"
+                placeholder="5.000"
+              />
+              <input
+                style="display: inline-block"
+                type="number"
+                id="inMaxPrice"
+                placeholder="1.000.000"
+              />
+              <button type="button" onclick="btSearchPrice()">
+                Filter by Price
+              </button>
+            </th>
+            <th>
+              <input type="text" id="cariProduk" placeholder="Cari Produk" onchange="btCariProduk()" />
+              <button type="button" >Cari</button>
+              <button type="button" onclick="btResetProduk()">Reset</button>
+            </th>
+          </thead>
+        </table>
+        <label for="sortBy" style="font-style: 20px; font-weight: bold; letter-spacing: 2px;">Sort By :</label><br>
+        <select id="sortBy" name="sortBy" onclick="btSortBy()">
+          <option value="defaultValue">-</option>
+          <option value="minPrice">Harga Terendah</option>
+          <option value="maxPrice">Harga Tertinggi</option>
+          <option value="minStock">Stock Terkecil</option>
+          <option value="maxStock">Stock Terbesar</option>
+        </select>
+        <table>
+          <thead>
+            <th>No</th>
+            <th>Foto Produk</th>
+            <th>Nama Produk</th>
+            <th>Deskripsi</th>
+            <th>Stock</th>
+            <th>Harga</th>
+            <th style="width: 200px">Action</th>
+          </thead>
+          <tbody id="listProduk"></tbody>
+        </table>
+      </fieldset>
+      <fieldset id="cart-page">
+        <legend>Keranjang Belanja</legend>
+        <table>
+          <thead>
+            <th>No</th>
+            <th>Foto Produk</th>
+            <th>Nama Produk</th>
+            <th>Qty</th>
+            <th>Price</th>
+            <th>Price Total</th>
+            <th style="width: 200px">Action</th>
+            <tbody id="listKeranjang"></tbody>
+          </thead>
+        </table>
+        <table id="listCheckout">
+          <thead>
+            
+          </thead>
+        </table>
+      </fieldset>
+
+      <fieldset id="order-page">
+        <legend>List Order</legend>
+        <table>
+          <thead>
+            <th>No</th>
+            <th>Nama Item </th>
+            <th>Jumlah Item</th>
+            <tbody id="listKeranjang"></tbody>
+          </thead>
+        </table>
+        <table id="listOrder">
+          <thead>
+            
+          </thead>
+        </table>
+      </fieldset>
+      
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>

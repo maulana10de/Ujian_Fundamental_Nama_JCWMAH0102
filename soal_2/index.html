@@ -1,0 +1,59 @@
+<script>
+  let arr = [];
+  while (true) {
+    let inputNumber = prompt('Masukan angka');
+    if (!parseInt(inputNumber)) break;
+    arr.push(inputNumber);
+  }
+
+  // funsgi sort
+  selectionSortAsc = (arr) => {
+    for (let i = 0; i < arr.length; i++) {
+      let lowest = i;
+      for (let j = i + 1; j < arr.length; j++) {
+        if (arr[j] < arr[lowest]) {
+          lowest = j;
+        }
+      }
+      if (i !== lowest) {
+        let temp = arr[i];
+        arr[i] = arr[lowest];
+        arr[lowest] = temp;
+      }
+    }
+    return arr;
+  };
+
+  // fungsi mencari nilai terendah
+  selectionSortMin = (arr) => {
+    selectionSortAsc(arr);
+    let lowest = arr[0];
+    for (let i = 0; i < arr.length; i++) {
+      if (lowest < arr[i]) {
+        return lowest;
+      }
+    }
+  };
+
+  // funsgi sort
+  dupMax = (arr) => {
+    for (let i = 0; i < arr.length; i++) {
+      let lowest = i;
+      for (let j = i + 1; j < arr.length; j++) {
+        if (arr[j] < arr[lowest]) {
+          lowest = j;
+        }
+      }
+      if (i !== lowest) {
+        let temp = arr[i];
+        arr[i] = arr[lowest];
+        arr[lowest] = temp;
+      }
+    }
+    return arr[arr.length - 1];
+  };
+
+  console.log(selectionSortAsc(arr));
+  console.log('Nilai Terendah', selectionSortMin(arr));
+  console.log('Nilai tertinggi', dupMax(arr));
+</script>
